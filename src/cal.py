@@ -23,20 +23,17 @@ import sys
 import calendar
 from datetime import datetime
 
-year = int(input('Please Enter the year Number: '))
-month = int(input('Please Enter the month Number: '))
+cur_year = datetime.now().year
+cur_month = datetime.now().month
+
+year = int(input('Please Enter the year Number: ') or cur_year)
+month = int(input('Please Enter the month Number: ') or cur_month)
 
 cur_year = datetime.now().year
 cur_month = datetime.now().month
 
-try:
-    if len(sys.argv) == 1:
-        print(calendar.month(cur_year, cur_month))
-    elif len(sys.argv) == 2:
-        print(calendar.month(cur_year, int(sys.argv[1])))
-    elif len(sys.argv) == 3:
-        print(calendar.month(int(sys.argv[2]), int(sys.argv[1])))
-except:
-    print("\nPlease enter 'python cal.py [month] [year]'.\
-           \nNote month and year are optional but must be an integer.\
-           \n")
+def makeCal(yeary, monthy):
+  if yeary:
+    print(calendar.month(yeary, monthy))
+
+makeCal(year, month)
