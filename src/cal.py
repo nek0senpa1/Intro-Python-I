@@ -22,3 +22,18 @@ and does the following:
 import sys
 import calendar
 from datetime import datetime
+
+cur_year = datetime.now().year
+cur_month = datetime.now().month
+
+year = int(input('Please Enter the year Number: ') or cur_year)
+month = int(input('Please Enter the month Number: ') or cur_month)
+
+cur_year = datetime.now().year
+cur_month = datetime.now().month
+
+def makeCal(yeary, monthy):
+  if yeary:
+    print(calendar.month(yeary, monthy))
+
+makeCal(year, month)
